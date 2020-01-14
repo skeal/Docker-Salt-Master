@@ -10,8 +10,8 @@ RUN apt-get update && apt-get upgrade -y -o DPkg::Options::=--force-confold
 
 # Add PPA
 
-RUN apt-get install -y software-properties-common dmidecode
-RUN add-apt-repository -y ppa:saltstack/salt
+RUN wget -O - https://repo.saltstack.com/apt/ubuntu/18.04/amd64/latest/SALTSTACK-GPG-KEY.pub | sudo apt-key add -
+RUN deb http://repo.saltstack.com/apt/ubuntu/18.04/amd64/latest bionic main
 RUN apt-get update
 
 # Install Salt
