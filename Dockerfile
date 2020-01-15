@@ -9,7 +9,7 @@ MAINTAINER skeal_ <nomail@foo.bar>
 RUN apt-get update && apt-get upgrade -y -o DPkg::Options::=--force-confold
 
 # Add PPA
-
+RUN DEBIAN_FRONTEND="noninteractive" apt-get -y install tzdata
 RUN apt-get install -y wget gnupg
 RUN wget -O - https://repo.saltstack.com/apt/ubuntu/18.04/amd64/latest/SALTSTACK-GPG-KEY.pub | apt-key add -
 RUN echo "deb http://repo.saltstack.com/apt/ubuntu/18.04/amd64/latest bionic main" | tee /etc/apt/sources.list.d/salt.list
